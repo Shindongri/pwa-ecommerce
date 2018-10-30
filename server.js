@@ -10,8 +10,8 @@ app
   .then(() => {
     const server = express();
 
-    server.get("/post/:title", ( req, res ) => {
-        const actualPage = "/post";
+    server.get("/movie/:id", ( req, res ) => {
+        const actualPage = "/movie";
         const queryParams = { title: req.params.title };
         app.render(req, res, actualPage, queryParams);
     } );
