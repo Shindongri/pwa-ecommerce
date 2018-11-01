@@ -15,15 +15,4 @@ export default () => <header>
             </li>
         </ul>
     </nav>
-    <style jsx global>{`
-        ul {
-            display: flex;
-        }
-        ul li {
-            margin-right: 20px;
-        }
-        header {
-            background-color: peru;
-        }
-    `}</style>
 </header>
