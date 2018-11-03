@@ -5,10 +5,14 @@
   "license": "MIT",
   "repository": "github:Shindongri/pwa-ecommerce",
   "dependencies": {
-    "axios": "^0.18.0",
+    "antd": "3.8.1",
+    "apollo-boost": "^0.1.19",
     "express": "^4.16.4",
+    "graphql": "^14.0.2",
     "next": "^7.0.2",
+    "next-with-apollo": "^3.2.2",
     "react": "^16.6.0",
+    "react-apollo": "^2.2.4",
     "react-dom": "^16.6.0"
   },
   "scripts": {

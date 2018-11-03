@@ -1,3 +1,4 @@
+import React from 'react';
 import Document, {Head, Main, NextScript} from 'next/document';
 
 export default class MyDocument extends Document {
@@ -10,8 +11,9 @@ export default class MyDocument extends Document {
         return (
             <html>
             <Head>
-                <meta name="author" content="shindongri"/>
-                <link href="/static/styles.css" rel="stylesheet"/>
+                <title>PWA E-Commerce</title>
+                <meta name="author" content="Dong-ri, Shin" />
+                <link href="//cdnjs.cloudflare.com/ajax/libs/antd/3.8.1/antd.min.css" rel="stylesheet" />
             </Head>
             <body>
             <Main/>
