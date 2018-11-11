@@ -11,7 +11,6 @@ export default class MyDocument extends Document {
         return (
             <html>
             <Head>
-                <title>PWA E-Commerce</title>
                 <meta name="author" content="Dong-ri, Shin" />
                 <link href="//cdnjs.cloudflare.com/ajax/libs/antd/3.8.1/antd.min.css" rel="stylesheet" />
             </Head>
