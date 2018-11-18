@@ -1,4 +1,6 @@
 import React from 'react';
+import {Query} from 'react-apollo';
+import {SEARCH_QUERY} from './searchQueries';
 
 import SearchPresenter from './searchPresenter';
 
@@ -10,18 +12,27 @@ export default class extends React.Component {
     };
 
     render() {
-        const { searchTerm, canSearch } = this.state;
+        const {searchTerm, canSearch} = this.state;
 
         return (
-            <SearchPresenter searchTerm={ searchTerm } updateSearchTerm={ this._updateSearchTerm } />
+            <Query skip={!canSearch} query={SEARCH_QUERY} variables={{searchTerm}}>
+                {({data}) => (
+                        <SearchPresenter
+                            searchTerm={searchTerm}
+                            updateSearchTerm={this._updateSearchTerm}
+                            data={data}
+                        />
+                )}
+            </Query>
         );
     }
 
     _updateSearchTerm = event => {
-        clearTimeout(this.setTimeout);
-        const { target: { value } } = event;
+        this.setState({canSearch: false});
+        clearTimeout(this.searchTimeout);
+        const {target: {value}} = event;
 
-        this.setState({searchTerm:value});
-        this.searchTimeout = setTimeout(() => console.log( "Searching..."), 500);
+        this.setState({searchTerm: value});
+        this.searchTimeout = setTimeout(() => this.setState({canSearch: true}), 500);
     }
 }
