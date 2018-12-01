@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
+import CartButton from '../../components/CartButton';
+
 import ProductCard from '../../components/ProductCard';
 import {Layout, Row} from 'antd';
 
@@ -14,9 +16,7 @@ export default ({data}) => (
         </Head>
         <Header
             centerColumn={<h4>Nomad Store</h4>}
-            rightColumn={
-                <Button href="/cart" text="Cart" btnIcon={"shopping-cart"}/>
-            }
+            rightColumn={ <CartButton /> }
             leftColumn={<Button href="/search" text="Search" btnIcon={"search"}/>}
         />
         <Content style={{padding: "0 50px"}}>

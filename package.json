@@ -19,5 +19,6 @@
     "dev": "node server",
     "build": "next build",
     "start": "NODE_ENV=production node server"
-  }
+  },
+  "proxy": "localhost:3000"
 }
