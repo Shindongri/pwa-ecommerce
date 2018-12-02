@@ -1,8 +1,8 @@
 import React from 'react';
-import {Query} from 'react-apollo';
+import { Query } from 'react-apollo';
 import IndexPresenter from './indexPresenter';
-import {INDEX_QUERY} from './indexQueries';
+import { INDEX_QUERY } from './indexQueries';
 
 export default () => (
-    <Query query={INDEX_QUERY}>{({data}) => <IndexPresenter data={data}/>}</Query>
+    <Query query={ INDEX_QUERY }>{ ( { data } ) => <IndexPresenter data={ data } /> }</Query>
 )

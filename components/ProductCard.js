@@ -1,31 +1,29 @@
 import React from 'react';
 import Link from 'next/link';
-import {Col, Icon, Card} from 'antd';
+import { Col, Icon, Card } from 'antd';
 
-const {Meta} = Card;
-
-export default ({id, name, description, photoUrl}) => (
-    <Col span={4} style={{marginBottom: "25px"}}>
+export default ( { id, name, description, photoUrl } ) => (
+    <Col span={ 4 } style={ { marginBottom: '25px', width: '200px' } }>
         <Link href={`/product?id=${ id }`}
               as={`/product/${ id }`}>
             <Card
                 hoverable
-                actions={[
-
+                style={ { width: '100%' } }
+                actions={ [
                     <a>
                         <Icon type="eye"
                               theme="outlined"/>
                     </a>
-                ]}
+                ] }
                 cover={
                     <img
                         alt="example"
-                        src={photoUrl}
-                        style={{height: '200px'}}
+                        src={ photoUrl }
+                        style={ { height: '200px' } }
                     />
                 }
             >
-                <Meta title={name} description={description}/>
+                <Card.Meta title={ name } description={ description } />
             </Card>
         </Link>
     </Col>

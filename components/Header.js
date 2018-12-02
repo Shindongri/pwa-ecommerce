@@ -1,32 +1,32 @@
 import React from 'react';
-import {Layout, Row, Col} from 'antd';
+import { Layout, Row, Col } from 'antd';
 
-const {Header} = Layout;
+const { Header } = Layout;
 
-export default ({centerColumn, rightColumn, leftColumn}) => (
+export default ( { centerColumn, rightColumn, leftColumn } ) => (
     <Header
         theme="dark"
-        style={{
+        style={ {
             backgroundColor: "#F0F2F5",
             marginBottom: "25px"
-        }}
+        } }
     >
         <Row>
-            <Col span={6} style={{textAlign: "left"}}>
-                {leftColumn}
+            <Col span={ 6 } style={ { textAlign: "left" } }>
+                { leftColumn }
             </Col>
             <Col
-                span={12}
-                style={{
+                span={ 12 }
+                style={ {
                     textAlign: "center",
                     fontWeight: 600,
                     textTransform: "uppercase"
-                }}
+                } }
             >
-                {centerColumn}
+                { centerColumn }
             </Col>
-            <Col span={6} style={{textAlign: "right"}}>
-                {rightColumn}
+            <Col span={ 6 } style={ { textAlign: "right" } }>
+                { rightColumn }
             </Col>
         </Row>
     </Header>

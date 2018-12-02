@@ -1,4 +1,4 @@
-import {gql} from 'apollo-boost';
+import { gql } from 'apollo-boost';
 import { PRODUCT_FRAGMENT } from '../../fragments'
 
 export const SEARCH_QUERY = gql`
@@ -6,8 +6,8 @@ export const SEARCH_QUERY = gql`
         products (
             where: {
                 OR: [
-                    {name_contains: $searchTerm}, 
-                    {subtitle_contains: $searchTerm}
+                    { name_contains: $searchTerm }, 
+                    { subtitle_contains: $searchTerm }
                 ]
             }
         ) {

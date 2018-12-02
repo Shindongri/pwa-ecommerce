@@ -12,6 +12,6 @@ const CART_QUERY = gql`
 
 export default () => (
     <Query query={ CART_QUERY }>
-    { ( { data } ) => <Button href="/cart" text={ data.cart.length === 0 ? 'Cart' : `Cart ${ data.cart.length }` } btnIcon={"shopping-cart"} /> }
+    { ( { data } ) => <Button href="/cart" text={ data.cart.length === 0 ? 'Cart' : `Cart ( ${ data.cart.length } )` } btnIcon={"shopping-cart"} /> }
     </Query>
 );

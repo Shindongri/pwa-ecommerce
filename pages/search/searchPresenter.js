@@ -4,11 +4,11 @@ import Header from '../../components/Header';
 import Button from '../../components/Button';
 import CartButton from '../../components/CartButton';
 import ProductCard from '../../components/ProductCard';
-import {Layout, Input, Row} from 'antd';
+import { Layout, Input, Row } from 'antd';
 
-const {Content} = Layout;
+const { Content } = Layout;
 
-export default ({data, updateSearchTerm, searchTerm}) => {
+export default ( { data, updateSearchTerm, searchTerm } ) => {
 
     return (
         <>
@@ -16,26 +16,26 @@ export default ({data, updateSearchTerm, searchTerm}) => {
                 <title>Search | Nomad Store</title>
             </Head>
             <Header
-                centerColumn={<h4>{searchTerm === "" ? "Search" : `Searching by ${ searchTerm }`}</h4>}
+                centerColumn={ <h4>{searchTerm === "" ? "Search" : `Searching by ${ searchTerm }`}</h4> }
                 rightColumn={ <CartButton /> }
-                leftColumn={<Button href="/" text="Home" btnIcon={"home"}/>}
+                leftColumn={ <Button href="/" text="Home" btnIcon={"home"} /> }
             />
-            <Content style={{padding: "0 50px"}}>
-                <Input placeholder="Search by name" onChange={updateSearchTerm} value={searchTerm}/>
-                <Row gutter={16} style={{margin: '50px 0px'}}>
+            <Content style={ { padding: "0 50px" } }>
+                <Input placeholder="Search by name" onChange={ updateSearchTerm } value={ searchTerm }/>
+                <Row gutter={ 16 } style={ { margin: '50px 0px' } }>
                     {
                         data &&
                         data.products &&
-                        data.products.map(product => (
+                        data.products.map( product => (
                             <ProductCard
-                                key={product.id}
-                                id={product.id}
-                                name={product.name}
-                                subtitle={product.subtitle}
-                                price={product.price}
-                                photoUrl={product.photo.url}
+                                key={ product.id }
+                                id={ product.id }
+                                name={ product.name }
+                                subtitle={ product.subtitle }
+                                price={ product.price }
+                                photoUrl={ product.photo.url }
                             />
-                        ))
+                        ) )
                     }
                 </Row>
             </Content>
