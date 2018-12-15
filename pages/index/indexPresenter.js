@@ -12,10 +12,10 @@ const { Content } = Layout;
 export default ( { data } ) => (
     <>
         <Head>
-            <title>Home | Nomad Store</title>
+            <title>Home | E-Store</title>
         </Head>
         <Header
-            centerColumn={ <h4>Nomad Store</h4> }
+            centerColumn={ <h4>E-Store</h4> }
             rightColumn={ <CartButton /> }
             leftColumn={ <Button href="/search" text="Search" btnIcon={"search"}/> }
         />

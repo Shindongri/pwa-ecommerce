@@ -12,9 +12,11 @@
     "next": "^7.0.2",
     "next-nprogress": "^1.4.0",
     "next-with-apollo": "^3.2.2",
+    "numeral": "^2.0.6",
     "react": "^16.6.0",
     "react-apollo": "^2.2.4",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "styled-components": "^4.1.2"
   },
   "scripts": {
     "dev": "node server",

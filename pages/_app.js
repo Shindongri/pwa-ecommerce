@@ -1,11 +1,23 @@
 import { Layout } from 'antd';
 import App, { Container } from 'next/app';
 import React from 'react';
+import withNProgress from 'next-nprogress';
+import { Icon } from 'antd';
+import { createGlobalStyle } from 'styled-components';
+
 import withApollo from '../lib/withApollo';
 import { ApolloProvider } from 'react-apollo';
-import withNProgress from 'next-nprogress';
 
 const { Footer } = Layout;
+
+const GlobalStyle = createGlobalStyle`
+    body {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 22px 16px;
+        background: #f0f0f0;
+    }
+`;
 
 class MyApp extends App {
     static async getInitialProps( { Component, router, ctx } ) {
@@ -28,11 +40,17 @@ class MyApp extends App {
 
     render() {
         const { Component, pageProps, apollo } = this.props;
+
         return (
             <ApolloProvider client={ apollo }>
                 <Container>
                     <Component { ...pageProps }/>
-                    <Footer>This is important</Footer>
+                    <Footer>
+                        <div style={ { textAlign: 'center' } }>
+                            Copyright <Icon type="copyright" /> 2018 Dong-ri, Shin
+                        </div>
+                    </Footer>
+                    <GlobalStyle />
                 </Container>
             </ApolloProvider>
         );

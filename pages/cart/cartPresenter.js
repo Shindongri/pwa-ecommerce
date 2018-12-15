@@ -1,9 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
+import { Button as AntButton } from 'antd';
+import numeral from 'numeral';
+
 import Header from '../../components/Header';
 import Button from '../../components/Button';
 import ProductCard from '../../components/ProductCard';
-import { Button as AntButton } from 'antd';
 
 const reduceFn = ( price, product ) => price + product.price;
 
@@ -40,7 +42,7 @@ const cartPresenter = ( { data } ) => (
             }
         </div>
         <div style={ { padding: "0px 50px" } }>
-            <h3>Total Price: ${ data && data.cart && data.cart.reduce( reduceFn, 0 ) } </h3>
+            <h3>Total Price: ￦{ data && data.cart && numeral( data.cart.reduce( reduceFn, 0 ) ).format( '0,0' ) } </h3>
             <AntButton htmlType="button" type="primary">Check Out</AntButton>
         </div>
     </>
