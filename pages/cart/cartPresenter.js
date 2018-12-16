@@ -9,7 +9,7 @@ import ProductCard from '../../components/ProductCard';
 
 const reduceFn = ( price, product ) => price + product.price;
 
-const cartPresenter = ( { data } ) => (
+const cartPresenter = ( { data, onPay } ) => (
     <>
         <Head>
             <title>Cart | Store</title>
@@ -43,7 +43,7 @@ const cartPresenter = ( { data } ) => (
         </div>
         <div style={ { padding: "0px 50px" } }>
             <h3>Total Price: ￦{ data && data.cart && numeral( data.cart.reduce( reduceFn, 0 ) ).format( '0,0' ) } </h3>
-            <AntButton htmlType="button" type="primary">Check Out</AntButton>
+            <AntButton type="primary" onClick={ onPay }>Check Out</AntButton>
         </div>
     </>
 );

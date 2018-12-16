@@ -6,6 +6,7 @@ import { Icon } from 'antd';
 import { createGlobalStyle } from 'styled-components';
 
 import withApollo from '../lib/withApollo';
+import convertDataURIToBinary from "../lib/base64";
 import { ApolloProvider } from 'react-apollo';
 
 const { Footer } = Layout;
@@ -33,8 +34,28 @@ class MyApp extends App {
     componentDidMount() {
         if ( "serviceWorker" in navigator ) {
             navigator.serviceWorker.register( "/sw.js" )
-                .then( result => console.log( "SW Registered:", result ))
+                .then( swReg => {
+                    console.log( "SW Registered:", swReg );
+                    swReg.pushManager.getSubscription().then( subscription => {
+                        if ( subscription === null ) {
+                            Notification.requestPermission().then( permission => {
+                                if ( permission === 'granted' ) {
+                                    swReg.pushManager.subscribe( {
+                                        userVisibleOnly: true,
+                                        applicationServerKey: convertDataURIToBinary( 'BA83m-Y2oX674PLm5ADVbmkueG5BD1_nbQpVe2y9V4mJ5QjcDZESys7QA06Omtoum5TJBNmP7s3BpDMIp7RR8r8' ),
+                                    } ).then( pushSubscriptionObj => console.log( JSON.stringify(pushSubscriptionObj) ) )
+                                }
+                            } );
+                        } else {
+                            console.log( JSON.stringify( subscription ) );
+                        }
+                    }  );
+                } )
                 .catch( error => console.log( "SW Error :", error ) );
+        }
+
+        if( "PushManager" in window ) {
+            Notification.requestPermission().then( permission => console.log( permission ))
         }
     }
 
